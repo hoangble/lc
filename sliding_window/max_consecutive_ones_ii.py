@@ -17,10 +17,10 @@ class Solution:
                 n_zeros -= nums[left] == 0
                 left += 1
             
+            # if there are less than one 1, check to get longest window
             if n_zeros <= 1:
                 ans = max(ans, right - left + 1)
 
-            
             # always move right
             right += 1
         return ans
