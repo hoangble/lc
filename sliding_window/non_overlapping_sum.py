@@ -1,5 +1,5 @@
 # https://leetcode.com/problems/find-two-non-overlapping-sub-arrays-each-with-target-sum/ 
-# 1477. Find Two Non-overlapping Sub-arrays Each With Target Sum1477. Find Two Non-overlapping Sub-arrays Each With Target Sum
+# 1477. Find Two Non-overlapping Sub-arrays Each With Target Sum
 
 from typing import List
 
