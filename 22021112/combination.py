@@ -13,3 +13,9 @@ class Solution:
             picked_nums.append(i)
             self.pick_num(i + 1,  picked_nums, k-1, n , ans)
             picked_nums.pop()
+
+#%%
+ord("Z")
+
+#%%
+ord("z")

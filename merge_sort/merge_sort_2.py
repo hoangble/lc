@@ -27,3 +27,12 @@ class Solution:
             if len(lists) % 2 == 1:
                 arr.append(lists[-1])
             return self.mergeKLists(arr)
+
+#%%
+x = -1
+sign = [False]
+print(sign)
+
+#%%
+N = 2
+print(1<<N)

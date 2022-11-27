@@ -42,3 +42,8 @@ class Solution:
         # nums[a] = nums[a] + nums[b]
         # nums[b] = nums[a]- nums[b]
         # nums[a] = nums[a] - nums[b]
+
+#%%
+x = 0
+sign = [1,-1][x<0]
+print(sign)
