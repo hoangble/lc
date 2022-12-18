@@ -80,6 +80,3 @@ if __name__ == "__main__":
     sol = Solution()
     mat = [[0, 0], [0, 1]]
     sol.minFlips(mat)
-
-#%%
-(1<<3)
