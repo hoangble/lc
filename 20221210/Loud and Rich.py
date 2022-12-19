@@ -23,7 +23,3 @@ class Solution:
             if quiet[ans[i]] > quiet[self.dfs(ans, j, rich, quiet)]:
                 ans[i] = ans[j]
         return ans[i]
-
-#%%
-numOfKeys = 2
-print(1 << numOfKeys) 
