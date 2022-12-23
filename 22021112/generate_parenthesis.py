@@ -18,11 +18,3 @@ class Solution:
             gen_pair.append(")")
             self.get_pairs(gen_pair, avail_open, avail_close - 1, ans)
             gen_pair.pop()
-        
-        
-        
-        
-        
-            
-            
-        

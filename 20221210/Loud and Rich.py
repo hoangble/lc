@@ -23,3 +23,20 @@ class Solution:
             if quiet[ans[i]] > quiet[self.dfs(ans, j, rich, quiet)]:
                 ans[i] = ans[j]
         return ans[i]
+
+if __name__ == "__main__":
+    sol = Solution()
+    richer = [[1, 0],[2,1],[3,1],[3,7],[4,3],[5,3],[6,3]]
+    quiet = [3,2,5,4,6,1,7,0]
+
+    sol.loudAndRich(richer=richer, quiet=quiet)
+
+#%%
+
+k = 2
+matrix = [[0] * k] * k
+matrix[0][1] = 1
+print(matrix)
+
+#%%
+matrix[1][1]
