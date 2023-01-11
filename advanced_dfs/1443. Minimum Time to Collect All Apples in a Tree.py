@@ -9,21 +9,25 @@ class Solution:
             graph[edge[-1]].append(edge[0])
         
         visited = set()
-        visited.add(0)    
-        valid_node, _ = self.dfs(0, graph, visited, hasApple, 1, False)
-        return valid_node
+        visited.add(0) 
+        valid_node = set()
 
-    def dfs(self, node, graph, visited, has_apple, valid_node, branch_has_apple) -> (int, bool):
+        self.dfs(0, graph, visited, hasApple, valid_node, False)
+        # print(valid_node)
+        return (len(valid_node) - 1) *2
+
+    def dfs(self, node, graph, visited, has_apple, valid_node, branch_has_apple) -> bool:
+        # print(node, valid_node)
         all_children = graph[node]
-        if len(all_children) == 0:
-            return 0, False
-
+      
         for child in all_children:
-            curr_valid_node, has_apple = self.dfs(child, graph, visited, has_apple, valid_node, branch_has_apple)
-            if has_apple: branch_has_apple = True
-            valid_node += curr_valid_node
+            if child not in visited:
+                visited.add(child)
+                if self.dfs(child, graph, visited, has_apple, valid_node, False) or has_apple[child]: 
+                    branch_has_apple = True
 
-        if branch_has_apple:  
-            valid_node += 2
+        if has_apple[node] or branch_has_apple: 
+            valid_node.add(node)
+            return True 
 
-        return valid_node, branch_has_apple
+        return False
