@@ -35,10 +35,3 @@ class Solution:
             else:
                 right = mid
         return left if isPossible(left) else right
-
-
-#%%
-
-s = "aaabb"
-from collections import Counter
-Counter(s)
