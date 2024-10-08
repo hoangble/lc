@@ -1,9 +1,10 @@
 class Solution:
     import heapq
+
     def minMeetingRooms(self, intervals: List[List[int]]) -> int:
         q = []
         heapq.heapify(q)
-        intervals.sort(key = lambda x: x[0])
+        intervals.sort(key=lambda x: x[0])
         heapq.heappush(q, intervals[0][-1])
         # print(q)
         ans = 1

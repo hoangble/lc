@@ -2,7 +2,7 @@
 #     def __init__(self):
 #         self.is_end = ""
 #         self.edges = {}
-    
+
 # class Solution:
 #     def findWords(self, board: List[List[str]], words: List[str]) -> List[str]:
 #         trie_head = Node()
@@ -16,7 +16,7 @@
 #                 else:
 #                     tmp = tmp.edges[c]
 #             tmp.is_end = word
-        
+
 #         m, n = len(board), len(board[0])
 #         self.visited = []
 #         for _ in range(m):
@@ -34,7 +34,7 @@
 #     def backtrack(self, board, x, y, node, m, n, ans):
 #         self.visited[x][y] = True
 
-#         if len(node.is_end) != 0: 
+#         if len(node.is_end) != 0:
 
 #             # print(node.is_end)
 #             ans.add(node.is_end)
@@ -61,20 +61,20 @@
 #     def in_bound(self, new_x, new_y, m, n):
 #         return 0 <= new_x < m and 0 <= new_y < n
 
-        
 
 #     # def visit_trie(self, node):
 #     #     if len(node.is_end) != 0:
 #     #         # print(node.is_end)
 #     #         return
-        
+
 #     #     for edge in node.edges:
 #     #         self.visit_trie(node.edges[edge])
 
+
 class Solution:
     def findWords(self, board: List[List[str]], words: List[str]) -> List[str]:
-        WORD_KEY = '$'
-        
+        WORD_KEY = "$"
+
         trie = {}
         for word in words:
             node = trie
@@ -83,39 +83,38 @@ class Solution:
                 node = node.setdefault(letter, {})
             # mark the existence of a word in trie node
             node[WORD_KEY] = word
-        
+
         rowNum = len(board)
         colNum = len(board[0])
-        
+
         matchedWords = []
-        
-        def backtracking(row, col, parent):    
-            
+
+        def backtracking(row, col, parent):
             letter = board[row][col]
             currNode = parent[letter]
-            
+
             # check if we find a match of word
             word_match = currNode.pop(WORD_KEY, False)
             if word_match:
                 # also we removed the matched word to avoid duplicates,
                 #   as well as avoiding using set() for results.
                 matchedWords.append(word_match)
-            
-            # Before the EXPLORATION, mark the cell as visited 
-            board[row][col] = '#'
-            
+
+            # Before the EXPLORATION, mark the cell as visited
+            board[row][col] = "#"
+
             # Explore the neighbors in 4 directions, i.e. up, right, down, left
-            for (rowOffset, colOffset) in [(-1, 0), (0, 1), (1, 0), (0, -1)]:
-                newRow, newCol = row + rowOffset, col + colOffset     
+            for rowOffset, colOffset in [(-1, 0), (0, 1), (1, 0), (0, -1)]:
+                newRow, newCol = row + rowOffset, col + colOffset
                 if newRow < 0 or newRow >= rowNum or newCol < 0 or newCol >= colNum:
                     continue
                 if not board[newRow][newCol] in currNode:
                     continue
                 backtracking(newRow, newCol, currNode)
-        
+
             # End of EXPLORATION, we restore the cell
             board[row][col] = letter
-        
+
             # Optimization: incrementally remove the matched leaf node in Trie.
             if not currNode:
                 parent.pop(letter)
@@ -125,6 +124,5 @@ class Solution:
                 # starting from each of the cells
                 if board[row][col] in trie:
                     backtracking(row, col, trie)
-        
-        return matchedWords    
-   
+
+        return matchedWords

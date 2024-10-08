@@ -19,11 +19,11 @@ class Solution:
                 new_j = j + 1
             if new_i < 0 or new_i == m or new_j < 0 or new_j == n:
                 if down:
-                    j += (i == m - 1)
-                    i += (i < m - 1)
+                    j += i == m - 1
+                    i += i < m - 1
                 else:
-                    i += (j == n - 1)
-                    j += (j < n - 1)
+                    i += j == n - 1
+                    j += j < n - 1
                 # if i < 0 or i == m:
                 #     if i < 0:
                 #         i += 1
@@ -49,7 +49,6 @@ class Solution:
 ########################################################
 class Solution_LC:
     def findDiagonalOrder(self, matrix: List[List[int]]) -> List[int]:
-
         # Check for an empty matrix
         if not matrix or not matrix[0]:
             return []
@@ -73,7 +72,6 @@ class Solution_LC:
         # The uber while loop which will help us iterate over all
         # the elements in the array.
         while row < N and column < M:
-
             # First and foremost, add the current element to
             # the result matrix.
             result.append(matrix[row][column])
@@ -88,11 +86,9 @@ class Solution_LC:
             # bounds of the matrix or not. If it's not within the bounds,
             # we have to find the next head.
             if new_row < 0 or new_row == N or new_column < 0 or new_column == M:
-
                 # If the current diagonal was going in the upwards
                 # direction.
                 if direction:
-
                     # For an upwards going diagonal having [i, j] as its tail
                     # If [i, j + 1] is within bounds, then it becomes
                     # the next head. Otherwise, the element directly below
@@ -100,9 +96,8 @@ class Solution_LC:
                     row += (
                         column == M - 1
                     )  # this for when we reach the right/left wall at the same time
-                    column += (column < M - 1)
+                    column += column < M - 1
                 else:
-
                     # For a downwards going diagonal having [i, j] as its tail
                     # if [i + 1, j] is within bounds, then it becomes
                     # the next head. Otherwise, the element directly below
@@ -110,7 +105,7 @@ class Solution_LC:
                     column += (
                         row == N - 1
                     )  # this for when we reach the top/bottom wall at the same time
-                    row += (row < N - 1)
+                    row += row < N - 1
 
                 # Flip the direction
                 direction = 1 - direction

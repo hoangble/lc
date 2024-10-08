@@ -6,7 +6,7 @@ class Solution:
         rev, x = 0, abs(x)
         while x:
             x, mod = divmod(x, 10)
-            rev = rev*10+mod
-        if sign*rev < pow(-2, 31) or sign*rev > pow(2, 31)-1:
+            rev = rev * 10 + mod
+        if sign * rev < pow(-2, 31) or sign * rev > pow(2, 31) - 1:
             return 0
-        return sign*rev
+        return sign * rev

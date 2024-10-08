@@ -19,7 +19,8 @@ class Solution:
             count, left_ptr, right_ptr = 0, 0, 0
             while left_ptr < len(nums):
                 while (right_ptr < len(nums)) and (
-                    (nums[right_ptr] - nums[left_ptr]) <= answer):
+                    (nums[right_ptr] - nums[left_ptr]) <= answer
+                ):
                     right_ptr += 1
                 count += right_ptr - left_ptr - 1
                 left_ptr += 1

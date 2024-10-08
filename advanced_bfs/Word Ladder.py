@@ -6,18 +6,20 @@ from collections import deque
 from copy import deepcopy
 from typing import List
 
+
 class Solution:
     def ladderLength(self, beginWord: str, endWord: str, wordList: List[str]) -> int:
-        if endWord not in wordList: return 0
+        if endWord not in wordList:
+            return 0
         wordList = set(wordList)
         queue = deque()
         queue.append((beginWord, 0))
         visited = set()
         visited.add(beginWord)
-        
+
         # too slow
         # while queue:
-        #     curr_word, n_step = queue.popleft() 
+        #     curr_word, n_step = queue.popleft()
 
         #     if curr_word == endWord: return n_step + 1
 
@@ -28,9 +30,10 @@ class Solution:
         # return 0
 
         while queue:
-            curr_word, n_step = queue.popleft() 
+            curr_word, n_step = queue.popleft()
 
-            if curr_word == endWord: return n_step + 1
+            if curr_word == endWord:
+                return n_step + 1
 
             letters = [*curr_word]
             for i in range(len(letters)):

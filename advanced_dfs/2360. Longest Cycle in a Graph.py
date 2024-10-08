@@ -1,4 +1,5 @@
-from typing import List 
+from typing import List
+
 
 class Solution:
     def longestCycle(self, edges: List[int]) -> int:
@@ -7,7 +8,8 @@ class Solution:
         time_tracker = [0] * len(edges)
 
         for i in range(len(edges)):
-            if time_tracker[i] > 0: continue
+            if time_tracker[i] > 0:
+                continue
 
             u = i
             start_time = t
@@ -18,7 +20,7 @@ class Solution:
             if u != -1 and time_tracker[u] >= start_time:
                 ans = max(ans, t - time_tracker[u])
         return ans if ans > 0 else -1
-    
+
         # in_stack = [False] * len(edges)
         # step_track = [0] * len(edges)
 
@@ -44,10 +46,11 @@ class Solution:
     #     in_stack[node] = True
     #     step_track[node] = step
     #     next_node = edges[node]
-        
-    #     return self.dfs(next_node, edges, in_stack, step_track, step + 1)        
+
+    #     return self.dfs(next_node, edges, in_stack, step_track, step + 1)
+
 
 if __name__ == "__main__":
-    edges = [1,2,0,4,5,6,3,8,9,7]
+    edges = [1, 2, 0, 4, 5, 6, 3, 8, 9, 7]
     sol = Solution()
     print(sol.longestCycle(edges=edges))

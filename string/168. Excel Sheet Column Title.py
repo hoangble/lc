@@ -7,8 +7,9 @@ class Solution:
             to_convert = n % 26
             ans += chr(to_convert + 65)
             n = n - (n // 26)
-        
+
         return ans
+
 
 # convert from base 10 to binary for practice
 def convert_to_bin(n: int) -> str:
@@ -16,7 +17,8 @@ def convert_to_bin(n: int) -> str:
     while n > 0:
         ans = str(n % 2) + ans
         n = n // 2
-    return ans 
+    return ans
+
+
 for i in range(11):
     print(i, convert_to_bin(i), bin(i))
-

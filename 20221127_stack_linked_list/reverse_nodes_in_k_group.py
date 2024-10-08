@@ -11,14 +11,14 @@ class ListNode:
 
 # redo
 class Solution:
-    def reverseKGroup(self, head: Optional[ListNode],
-                      k: int) -> Optional[ListNode]:
+    def reverseKGroup(self, head: Optional[ListNode], k: int) -> Optional[ListNode]:
         i = 0
         curr = head
         while i < k and curr:
             curr = curr.next
             i += 1
-        if i < k: return head
+        if i < k:
+            return head
 
         new_head = self.reverse_linked_list(head, k)
         head.next = self.reverseKGroup(curr, k)
@@ -35,4 +35,3 @@ class Solution:
             curr = tmp
             k -= 1
         return prev
-

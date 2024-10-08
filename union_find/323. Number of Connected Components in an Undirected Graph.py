@@ -6,10 +6,10 @@ class Solution:
     #     for edge in edges:
     #         graph[edge[0]].append(edge[-1])
     #         graph[edge[-1]].append(edge[0])
-        
+
     #     for i in range(n):
     #         graph[i]
-        
+
     #     visited = set()
     #     cnt = 0
     #     for node in list(graph.keys()):
@@ -19,7 +19,6 @@ class Solution:
     #             self.traverse(node, graph, visited)
     #     return cnt
 
-    
     # def traverse(self, node, graph, visited):
     #     for child in graph[node]:
     #         if not child in visited:
@@ -33,17 +32,18 @@ class Solution:
         ans = n
         for edge in edges:
             print(edge)
-            if self.union(edge[0], edge[1]): ans -= 1
+            if self.union(edge[0], edge[1]):
+                ans -= 1
         return ans
-            
+
     def find(self, node) -> int:
-        if node == self.parent[node]: return self.parent[node]
+        if node == self.parent[node]:
+            return self.parent[node]
         # while node != self.parent[node]:
         self.parent[node] = self.find(self.parent[node])
-            # node = self.parent[node]
+        # node = self.parent[node]
         return self.parent[node]
-        
-    
+
     def union(self, x, y) -> bool:
         parent_x = self.find(x)
         parent_y = self.find(y)
@@ -51,10 +51,9 @@ class Solution:
         if parent_x != parent_y:
             if self.rank[parent_x] <= self.rank[parent_y]:
                 self.parent[parent_x] = parent_y
-                self.rank[parent_y] += self.rank[parent_x] 
+                self.rank[parent_y] += self.rank[parent_x]
             else:
-                self.parent[parent_y] = parent_x        
-                self.rank[parent_x] += self.rank[parent_y] 
+                self.parent[parent_y] = parent_x
+                self.rank[parent_x] += self.rank[parent_y]
             return True
         return False
-        

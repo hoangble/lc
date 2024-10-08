@@ -1,5 +1,6 @@
 class Solution:
     from collections import Counter
+
     def removeDuplicateLetters(self, s: str) -> str:
         # counter number of letter in s
         # sort counter alphabetically -> O(1) for space

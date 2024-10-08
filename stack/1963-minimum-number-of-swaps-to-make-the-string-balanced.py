@@ -4,7 +4,7 @@ class Solution:
         stack_size = 0
 
         for s in input_string:
-            if s == '[':
+            if s == "[":
                 stack_size += 1
             else:
                 if stack_size > 0:

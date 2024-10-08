@@ -19,5 +19,6 @@ class Solution:
                 if curr_len < min_len:
                     min_len = curr_len
 
-        if min_len >= len(nums): min_len = -1
+        if min_len >= len(nums):
+            min_len = -1
         return min_len

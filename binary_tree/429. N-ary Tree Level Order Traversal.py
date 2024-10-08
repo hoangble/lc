@@ -6,9 +6,11 @@ class Node:
         self.children = children
 """
 
+
 class Solution:
-    def levelOrder(self, root: 'Node') -> List[List[int]]:
-        if not root: return []
+    def levelOrder(self, root: "Node") -> List[List[int]]:
+        if not root:
+            return []
 
         ans = []
         queue = [root]
@@ -18,7 +20,8 @@ class Solution:
             for node in queue:
                 curr_level_ans.append(node.val)
                 for child in node.children:
-                    if child: next_level.append(child)
+                    if child:
+                        next_level.append(child)
             queue = next_level
             ans.append(curr_level_ans)
         return ans

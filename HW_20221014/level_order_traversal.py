@@ -11,12 +11,13 @@ from typing import List, Optional
 
 
 class Solution:
-    #time complexity: O(n)
-    #space complexity: O(n): save all answers to an array
-    
+    # time complexity: O(n)
+    # space complexity: O(n): save all answers to an array
+
     def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
         # stack = [root]
-        if root is None: return []
+        if root is None:
+            return []
         queue = [root]
         current_level = []
         next_level = []

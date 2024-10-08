@@ -2,6 +2,7 @@
 # 1248. Count Number of Nice Subarrays
 from typing import List
 
+
 class PrefixSumSolution:
     def numberOfSubarrays(self, nums: List[int], k: int) -> int:
         """
@@ -15,22 +16,23 @@ class PrefixSumSolution:
                 nums[i] = 0
             else:
                 nums[i] = 1
-                
+
         prefix_sum = 0
         hash_map = {0: 1}
         cnt = 0
-        
+
         for i in range(len(nums)):
             prefix_sum += nums[i]
-            
+
             if prefix_sum - k in hash_map:
                 cnt += hash_map[prefix_sum - k]
-            
+
             if prefix_sum not in hash_map:
                 hash_map[prefix_sum] = 1
             else:
                 hash_map[prefix_sum] += 1
         return cnt
+
 
 class SlidingWindowSolution:
     def numberOfSubarrays(self, nums: List[int], k: int) -> int:
@@ -42,18 +44,18 @@ class SlidingWindowSolution:
         odd_cnt = 0
         left = 0
         right = 0
-        
+
         while right < len(nums):
             # add the right cnt
             if nums[right] % 2 == 1:
                 odd_cnt += 1
-           
+
             while odd_cnt > k:
                 if nums[left] % 2 == 1:
                     odd_cnt -= 1
                 left += 1
-                
-            # remove the left cnt            
+
+            # remove the left cnt
             if odd_cnt == k:
                 ans += 1
                 # check if prefix of the current subarray only has even number
@@ -63,4 +65,4 @@ class SlidingWindowSolution:
                     temp_left += 1
                     ans += 1
             right += 1
-        return ans        
+        return ans

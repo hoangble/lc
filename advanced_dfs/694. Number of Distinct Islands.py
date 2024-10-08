@@ -2,9 +2,9 @@ class Solution:
     def numDistinctIslands(self, grid: List[List[int]]) -> int:
         ans = 0
         all_unique_islands = set()
-        self.moves = [[0,1], [0,-1], [1,0], [-1,0]]
+        self.moves = [[0, 1], [0, -1], [1, 0], [-1, 0]]
         self.moves_str = ["u", "d", "r", "l"]
-        m, n = len(grid), len(grid[0]) 
+        m, n = len(grid), len(grid[0])
 
         for row in range(m):
             for col in range(n):
@@ -17,7 +17,6 @@ class Solution:
 
         return len(all_unique_islands)
 
-    
     def helper(self, x, y, m, n, grid, current_island) -> str:
         # print(current_island)
         for move, move_str in zip(self.moves, self.moves_str):

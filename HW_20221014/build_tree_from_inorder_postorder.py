@@ -14,13 +14,13 @@ class TreeNode:
 class Solution:
     # time complexity: O(n)
     # space complexity: ???
-    
-    def buildTree(self, inorder: List[int],
-                  postorder: List[int]) -> Optional[TreeNode]:
+
+    def buildTree(self, inorder: List[int], postorder: List[int]) -> Optional[TreeNode]:
         inorder_map = {val: idx for idx, val in enumerate(inorder)}
 
         def dfs(start, end):
-            if start > end: return None
+            if start > end:
+                return None
             root = postorder.pop()
             root_idx = inorder_map[root]
             node = TreeNode(val=root)

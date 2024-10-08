@@ -13,10 +13,11 @@ class TreeNode:
 
 
 class Solution:
-    #time complexity: O(n)
-    #space complexity: O(n): save all answers to an array
+    # time complexity: O(n)
+    # space complexity: O(n): save all answers to an array
     def zigzagLevelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
-        if root is None: return []
+        if root is None:
+            return []
         queue = [root]
         current_level = []
         next_level = []
@@ -32,12 +33,12 @@ class Solution:
                     next_level.append(node.left)
                     # direction = "right"
                 # else: # direction == right
-#                     if node and node.right:
-#                         next_level.append(node.right)
+                #                     if node and node.right:
+                #                         next_level.append(node.right)
 
-#                     if node and node.left:
-#                         next_level.append(node.left)
-                    # direction = "left"
+                #                     if node and node.left:
+                #                         next_level.append(node.left)
+                # direction = "left"
                 if node:
                     current_level.append(node.val)
             if direction == "left":
@@ -51,6 +52,7 @@ class Solution:
             current_level = []
 
         return ans
+
 
 sol = Solution()
 right = TreeNode(val=2)

@@ -1,10 +1,12 @@
 from typing import List
 
+
 class Node:
     def __init__(self):
         self.end = False
         self.edges = {}
-    
+
+
 class Solution:
     def indexPairs(self, text: str, words: List[str]) -> List[List[int]]:
         # build trie for words
@@ -28,9 +30,6 @@ class Solution:
                 cur = cur.edges[text[r]]
                 if cur.end:
                     ans.append([l, r])
-        
+
         # sorted(ans, key = lambda x: x[0])
         return ans
-        
-
-        

@@ -9,7 +9,7 @@ class Trie:
                 node = Node()
                 tmp.edges[c] = node
             tmp = tmp.edges[c]
- 
+
         tmp.is_end = True
 
     def search(self, word: str) -> bool:
@@ -18,9 +18,8 @@ class Trie:
             if not c in tmp.edges:
                 return False
             tmp = tmp.edges[c]
- 
+
         return tmp.is_end
-        
 
     def startsWith(self, prefix: str) -> bool:
         tmp = self.head
@@ -30,11 +29,11 @@ class Trie:
             tmp = tmp.edges[c]
         return True
 
-class Node():
+
+class Node:
     def __init__(self):
         self.is_end = False
         self.edges = {}
-
 
 
 # Your Trie object will be instantiated and called as such:

@@ -13,7 +13,8 @@ from typing import List, Optional
 class Solution:
     def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
         # stack = [root]
-        if root is None: return []
+        if root is None:
+            return []
         queue = [root]
         current_level = []
         next_level = []

@@ -8,7 +8,6 @@ class Solution:
         ans_str = ""
         for s_ in s:
             if s_ == "]":
-
                 curr_str_ = ""
                 char_ = stack.pop()
                 while char_ != "[":

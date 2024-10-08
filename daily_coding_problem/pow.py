@@ -9,7 +9,7 @@
 
 import timeit
 
-dyn = '''
+dyn = """
 def pow_dynamic_programming(base = 2, power = 50, hash_map={}):
     # base case
     if power == 1:
@@ -33,9 +33,9 @@ def pow_dynamic_programming(base = 2, power = 50, hash_map={}):
                     base, (power - 1) // 2)
         return hash_map[power]
 
-'''
+"""
 
-rec = '''
+rec = """
 def pow_recursive(base = 2, power = 50):
     # base case
     if power == 1:
@@ -50,7 +50,7 @@ def pow_recursive(base = 2, power = 50):
         return pow_recursive(base,
                                      (power - 1) // 2) * pow_recursive(
                                          base, (power - 1) // 2)
-'''
+"""
 
 print(timeit.timeit(dyn, number=1000))
 print(timeit.timeit(rec, number=1000))

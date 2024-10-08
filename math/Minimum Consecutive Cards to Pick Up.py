@@ -5,7 +5,6 @@ from typing import List
 
 
 class Solution:
-
     def minimumCardPickup(self, cards: List[int]) -> int:
         last_index = dict()
         min_dict = dict()

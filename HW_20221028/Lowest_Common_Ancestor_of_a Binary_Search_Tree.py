@@ -3,6 +3,7 @@
 # Definition for a binary tree node.
 from typing import Optional, List
 
+
 class TreeNode:
     def __init__(self, x, left=None, right=None):
         self.val = x
@@ -11,36 +12,44 @@ class TreeNode:
 
 
 class Solution:
-    def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode',
-                             q: 'TreeNode') -> 'TreeNode':
+    def lowestCommonAncestor(
+        self, root: "TreeNode", p: "TreeNode", q: "TreeNode"
+    ) -> "TreeNode":
         # O(N)
-        if not root: return None
+        if not root:
+            return None
 
         # first number that is <= p and >= q or vice versa, or (p.val-root.val)*(q.val-root.val) <= 0
         # if (root.val <= p.val and root.val >= q.val) or (root.val >= p.val and root.val <= q.val): return root
-        if (p.val - root.val) * (q.val - root.val) <= 0: return root
+        if (p.val - root.val) * (q.val - root.val) <= 0:
+            return root
 
         left_lca = self.lowestCommonAncestor(root.left, p, q)
         right_lca = self.lowestCommonAncestor(root.right, p, q)
 
-        if left_lca: return left_lca
+        if left_lca:
+            return left_lca
 
-        if right_lca: return right_lca
+        if right_lca:
+            return right_lca
 
     ### even better to cut down half the tree (O(log N))
-    def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode',
-                             q: 'TreeNode') -> 'TreeNode':
+    def lowestCommonAncestor(
+        self, root: "TreeNode", p: "TreeNode", q: "TreeNode"
+    ) -> "TreeNode":
         """
         While the return condition is the same, the key difference is that
-        we only check the left subtree if the value of the current node < both p and q, 
+        we only check the left subtree if the value of the current node < both p and q,
         otherwise we check the right subtree since it's a binary search tree.
         O(log n)
         """
-        if not root: return None
+        if not root:
+            return None
 
         # first number that is <= p and >= q or vice versa, or (p.val-root.val)*(q.val-root.val) <= 0
         # if (root.val <= p.val and root.val >= q.val) or (root.val >= p.val and root.val <= q.val): return root
-        if (p.val - root.val) * (q.val - root.val) <= 0: return root
+        if (p.val - root.val) * (q.val - root.val) <= 0:
+            return root
 
         if root.val > p.val and root.val > q.val:
             return self.lowestCommonAncestor(root.left, p, q)

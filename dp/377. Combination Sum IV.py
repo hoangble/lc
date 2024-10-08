@@ -6,13 +6,15 @@ class Solution:
         return memo[-1]
 
     def dp(self, memo, nums, remain) -> int:
-        if remain == 0: return 1
+        if remain == 0:
+            return 1
 
-        if memo[remain] != -1 : return memo[remain]
+        if memo[remain] != -1:
+            return memo[remain]
 
         result = 0
         for num in nums:
-            if remain-num >= 0:
+            if remain - num >= 0:
                 result += self.dp(memo, nums, remain - num)
 
         memo[remain] = result

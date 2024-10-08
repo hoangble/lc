@@ -11,13 +11,16 @@ class TreeNode:
 
 
 class Solution:
-    def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode',
-                             q: 'TreeNode') -> 'TreeNode':
-        if not root: return None
+    def lowestCommonAncestor(
+        self, root: "TreeNode", p: "TreeNode", q: "TreeNode"
+    ) -> "TreeNode":
+        if not root:
+            return None
 
         # first number that is <= p and >= q or vice versa, or (p.val-root.val)*(q.val-root.val) <= 0
         # if (root.val <= p.val and root.val >= q.val) or (root.val >= p.val and root.val <= q.val): return root
-        if (p.val - root.val) * (q.val - root.val) <= 0: return root
+        if (p.val - root.val) * (q.val - root.val) <= 0:
+            return root
 
         if self.lowestCommonAncestor(root.left, p, q):
             return self.lowestCommonAncestor(root.left, p, q)
@@ -26,13 +29,16 @@ class Solution:
             return self.lowestCommonAncestor(root.right, p, q)
 
     ### even better to cut down half the tree (O(log N))
-    def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode',
-                             q: 'TreeNode') -> 'TreeNode':
-        if not root: return None
+    def lowestCommonAncestor(
+        self, root: "TreeNode", p: "TreeNode", q: "TreeNode"
+    ) -> "TreeNode":
+        if not root:
+            return None
 
         # first number that is <= p and >= q or vice versa, or (p.val-root.val)*(q.val-root.val) <= 0
         # if (root.val <= p.val and root.val >= q.val) or (root.val >= p.val and root.val <= q.val): return root
-        if (p.val - root.val) * (q.val - root.val) <= 0: return root
+        if (p.val - root.val) * (q.val - root.val) <= 0:
+            return root
 
         if root.val > p.val and root.val > q.val:
             return self.lowestCommonAncestor(root.left, p, q)
@@ -66,7 +72,7 @@ q = TreeNode(5)
 
 print(sol.lowestCommonAncestor(root, p=p, q=q).val)
 
-#%%
+# %%
 list_ = [1, 2, 3]
 print(list_.pop(0))
 print(list_)

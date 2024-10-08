@@ -1,4 +1,5 @@
-from typing import List 
+from typing import List
+
 
 class Solution:
     def removeDuplicates(self, nums: List[int]) -> int:
@@ -9,7 +10,7 @@ class Solution:
         for i in range(1, n):
             if nums[i] == nums[i - 1]:
                 cnt += 1
-            else: 
+            else:
                 cnt = 1
 
             if cnt <= 2:
@@ -19,6 +20,5 @@ class Solution:
 
 
 sol = Solution()
-nums = [0,0,1,1,1,1,2,3,3]
+nums = [0, 0, 1, 1, 1, 1, 2, 3, 3]
 sol.removeDuplicates(nums=nums)
-    

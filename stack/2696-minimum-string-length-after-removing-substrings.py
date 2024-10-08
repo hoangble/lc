@@ -1,4 +1,4 @@
-class Solution():
+class Solution:
     def minLength(self, string: str) -> int:
         stack = []
         for _s in string:
@@ -20,5 +20,6 @@ class Solution():
                         stack.append(_s)
         return len(stack)
 
+
 sol = Solution()
-sol.minLength('ABFCACDB')
+sol.minLength("ABFCACDB")

@@ -20,7 +20,8 @@ class Solution:
         for i in range(m):
             for j in range(n):
                 total_keys += grid[i][j] in keys
-                if grid[i][j] == "@": starting_point = [i, j]
+                if grid[i][j] == "@":
+                    starting_point = [i, j]
 
         queue = deque()
         queue.append((starting_point[0], starting_point[1], 0, 0))
@@ -30,20 +31,24 @@ class Solution:
         while queue:
             x_pos, y_pos, have_keys, n_step = queue.popleft()
 
-            if have_keys == (1 << total_keys) - 1: return n_step - 1
+            if have_keys == (1 << total_keys) - 1:
+                return n_step - 1
 
             curr = grid[x_pos][y_pos]
 
-            if curr in locks and not ((have_keys >> locks[curr]) & 1): continue
+            if curr in locks and not ((have_keys >> locks[curr]) & 1):
+                continue
 
-            if curr in keys: have_keys |= (1 << keys[curr])
+            if curr in keys:
+                have_keys |= 1 << keys[curr]
 
             for direction in directions:
                 new_x = x_pos + direction[0]
                 new_y = y_pos + direction[1]
-                if self.moveable(
-                        new_x, new_y, m, n,
-                        grid) and (new_x, new_y, have_keys) not in visited:
+                if (
+                    self.moveable(new_x, new_y, m, n, grid)
+                    and (new_x, new_y, have_keys) not in visited
+                ):
                     queue.append((new_x, new_y, have_keys, n_step + 1))
                     visited.add((new_x, new_y, have_keys))
         return -1

@@ -5,7 +5,7 @@
 # This is the interface that allows for creating nested lists.
 # You should not implement it, or speculate about its implementation
 # """
-#class NestedInteger:
+# class NestedInteger:
 #    def isInteger(self) -> bool:
 #        """
 #        @return True if this NestedInteger holds a single integer, rather than a nested list.
@@ -42,7 +42,8 @@ class NestedIterator:
                 s.pop()
             else:
                 x = nestedList[i]
-                if x.isInteger(): return True
+                if x.isInteger():
+                    return True
 
                 s[-1][1] += 1
                 s.append([x.getList(), 0])

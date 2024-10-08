@@ -1,4 +1,4 @@
-from typing import List 
+from typing import List
 
 
 class Solution:
@@ -9,9 +9,11 @@ class Solution:
         sum_ = 0
 
         for s in salary:
-            if s > max_: max_ = s
-            if s < min_: min_ = s
+            if s > max_:
+                max_ = s
+            if s < min_:
+                min_ = s
             cnt += 1
             sum_ += s
         # print(sum_)
-        return ((sum_ - max_ - min_) / (cnt - 2))
+        return (sum_ - max_ - min_) / (cnt - 2)

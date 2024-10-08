@@ -4,7 +4,8 @@
 
 class Solution:
     def removeKdigits(self, num: str, k: int) -> str:
-        if k >= len(num): return "0"
+        if k >= len(num):
+            return "0"
 
         stack = []
 

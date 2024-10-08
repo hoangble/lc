@@ -53,9 +53,11 @@ class TreeNode:
 
 #         return ans
 
+
 class Solution:
     def zigzagLevelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
-        if root is None: return []
+        if root is None:
+            return []
         queue = [root]
         current_level = []
         next_level = []
@@ -71,12 +73,12 @@ class Solution:
                     next_level.append(node.left)
                     # direction = "right"
                 # else: # direction == right
-#                     if node and node.right:
-#                         next_level.append(node.right)
+                #                     if node and node.right:
+                #                         next_level.append(node.right)
 
-#                     if node and node.left:
-#                         next_level.append(node.left)
-                    # direction = "left"
+                #                     if node and node.left:
+                #                         next_level.append(node.left)
+                # direction = "left"
                 if node:
                     current_level.append(node.val)
             if direction == "left":

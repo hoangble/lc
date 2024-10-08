@@ -12,7 +12,7 @@ class Solution:
             2: [1, 5],
             3: [0, 4],
             4: [1, 3, 5],
-            5: [2, 4]
+            5: [2, 4],
         }
 
     def slidingPuzzle(self, board: List[List[int]]) -> int:
@@ -24,9 +24,10 @@ class Solution:
 
         while q:
             curr_board, n_step = q.popleft()
-            if curr_board == "123450": return n_step
+            if curr_board == "123450":
+                return n_step
             for neighbor in self.get_neighbors(curr_board):
-                if neighbor not in visited:  #O(1): set is o(1)???
+                if neighbor not in visited:  # O(1): set is o(1)???
                     visited.add(neighbor)
                     q.append([neighbor, n_step + 1])
 

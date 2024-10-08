@@ -8,8 +8,8 @@ class BrowserHistory:
         self.pointer = 0
 
     def visit(self, url: str) -> None:
-        while (len(self.stack) != self.pointer + 1):
-            #remove all history for forwards, so forward till the current index
+        while len(self.stack) != self.pointer + 1:
+            # remove all history for forwards, so forward till the current index
             self.stack.pop()
         self.stack.append(url)
         self.pointer += 1
@@ -21,6 +21,7 @@ class BrowserHistory:
 
     def forward(self, steps: int) -> str:
         self.pointer = self.pointer + steps
-        self.pointer = len(self.stack) - 1 if self.pointer >= len(
-            self.stack) else self.pointer
+        self.pointer = (
+            len(self.stack) - 1 if self.pointer >= len(self.stack) else self.pointer
+        )
         return self.stack[self.pointer]

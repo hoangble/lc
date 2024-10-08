@@ -25,12 +25,16 @@ class BSTIterator:
         return self.i + 1 < len(self.all_nodes)
 
     def inorder_traverse(self, node: Optional[TreeNode]) -> list:
-        return self.inorder_traverse(node.left) + [
-            node.val
-        ] + self.inorder_traverse(node.right) if node else []
+        return (
+            self.inorder_traverse(node.left)
+            + [node.val]
+            + self.inorder_traverse(node.right)
+            if node
+            else []
+        )
 
 
-class IterativeBSTIterator():
+class IterativeBSTIterator:
     def __init__(self, root: Optional[TreeNode]):
         self.curr = root
         self.stack = []
@@ -63,5 +67,3 @@ class IterativeBSTIterator():
 # obj = BSTIterator(root)
 # param_1 = obj.next()
 # param_2 = obj.hasNext()
-
-

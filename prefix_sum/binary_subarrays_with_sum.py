@@ -7,7 +7,7 @@ class Solution:
         prefix_sum = 0
         cnt = 0
 
-        sum_dict = {0: 1}  #{prefix-k: # times appear}
+        sum_dict = {0: 1}  # {prefix-k: # times appear}
 
         for i in nums:
             prefix_sum += i

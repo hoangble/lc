@@ -4,7 +4,7 @@ import heapq
 from typing import List
 
 
-class Solution: # using priority heap, kinda cheating
+class Solution:  # using priority heap, kinda cheating
     def findKthLargest(self, nums: List[int], k: int) -> int:
         # keep a list of k largest number
         k_largest = []
@@ -14,9 +14,11 @@ class Solution: # using priority heap, kinda cheating
             if len(k_largest) > k:
                 heapq.heappop(k_largest)
         return k_largest[0]
+
     # O(nlog k), O(k)
 
-class Solution: # quick select
+
+class Solution:  # quick select
     def findKthLargest(self, nums: List[int], k: int) -> int:
         # keep a list of k largest number
         k_largest = []

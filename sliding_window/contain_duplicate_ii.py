@@ -1,16 +1,17 @@
-# https://leetcode.com/problems/contains-duplicate-ii/ 
+# https://leetcode.com/problems/contains-duplicate-ii/
 # 219. Contains Duplicate II
 
 from typing import List
+
 
 class Solution:
     def containsNearbyDuplicate(self, nums: List[int], k: int) -> bool:
         if len(set(nums)) == len(nums):
             return False
-        
+
         left = 0
         right = 0
-        
+
         while right < len(nums):
             while right - left > k:
                 if nums[right] == nums[left]:
@@ -28,10 +29,10 @@ class Solution:
                     return True
             hashmap_[num_] = i
         return False
-    
 
-#%%
-len(set([1,2]))
 
-#%%
+# %%
+len(set([1, 2]))
+
+# %%
 len()

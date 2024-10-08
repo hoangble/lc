@@ -6,7 +6,7 @@ class Solution:
         max_len = 0
         prefix_sum_dict = {0: -1}
         prefix_sum = 0
-        # curr_len = 0 # out of scope  
+        # curr_len = 0 # out of scope
 
         for i in range(len(nums)):
             if nums[i] == 0:

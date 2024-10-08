@@ -14,8 +14,10 @@ class TreeNode:
 
 class Solution:
     def inorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
-        if not root: return []
-        if not (root.left or root.right): return [root.val]
+        if not root:
+            return []
+        if not (root.left or root.right):
+            return [root.val]
         ans = []
         self.traverse(root.left, ans)
         ans.append(root.val)
@@ -24,7 +26,8 @@ class Solution:
         # return  self.inorderTraversal(root.left) + [root.val] + self.inorderTraversal(root.right) if root else []
 
     def traverse(self, node, ans):
-        if not node: return None
+        if not node:
+            return None
         # if not (node.left or node.right): return node.val
 
         self.traverse(node.left, ans)

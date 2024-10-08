@@ -17,7 +17,8 @@ class Solution:
         ans = []
 
         def traverse(node):
-            if node is None: return None
+            if node is None:
+                return None
 
             if not (node.left or node.right):
                 ans[-1].append(node.val)

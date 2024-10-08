@@ -12,14 +12,15 @@ class Solution:
         m, n = len(grid), len(grid[0])
         directions = [[0, 1], [0, -1], [-1, 0], [1, 0]]
         queue = deque()
-        queue.append((0, 0, k, 0))  #(x, y, k, n_step)
+        queue.append((0, 0, k, 0))  # (x, y, k, n_step)
         visited = set()
         visited.add((0, 0, k))
 
         while queue:
             x, y, curr_k, n_step = queue.popleft()
 
-            if x == m - 1 and y == n - 1: return n_step
+            if x == m - 1 and y == n - 1:
+                return n_step
 
             for direction in directions:
                 new_x = x + direction[0]
