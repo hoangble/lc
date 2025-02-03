@@ -9,8 +9,4 @@ class Solution:
         # self.ans.append(root.val)
         # self.preorderTraversal(root.left)
         # self.preorderTraversal(root.right)
-        return (
-            [root.val]
-            + self.preorderTraversal(root.left)
-            + self.preorderTraversal(root.right)
-        )
+        return [root.val] + self.preorderTraversal(root.left) + self.preorderTraversal(root.right)
