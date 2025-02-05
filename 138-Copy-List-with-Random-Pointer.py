@@ -9,33 +9,35 @@ class Node:
 
 class Solution:
     def copyRandomList(self, head: 'Optional[Node]') -> 'Optional[Node]':
+        # O(1) approach
+        # first pass to create new node and put it next to other
         if head is None:
             return None
-
-        new_head = Node(head.val)
-        clones = {head: new_head}
         curr = head
         while curr:
-            if curr not in clones:
-                new_node = Node(curr.val)
-                clones[curr] = new_node
-            
-            new_node = clones[curr]
-
-            if curr.next is not None:
-                if curr.next not in clones:
-                    new_next_node = Node(curr.next.val)
-                    clones[curr.next] = new_next_node
-                new_node.next = clones[curr.next]
-            
-
-            if curr.random is not None:
-                if curr.random not in clones:
-                    new_random_node = Node(curr.random.val)
-                    clones[curr.random] = new_random_node
-                new_node.random = clones[curr.random]
-            
-            curr = curr.next
+            new_node = Node(curr.val)
+            new_node.next = curr.next
+            curr.next = new_node
+            curr = curr.next.next
         
+        # second pass to take care of random
+        curr = head
+        while curr:
+
+            curr.next.random = curr.random.next if curr.random is not None else None 
+            curr = curr.next.next
+
+        # third pass to separate this ones
+        
+        curr = head
+        new_head = head.next
+        while curr:
+            clone = curr.next
+            curr.next = curr.next.next
+
+            clone.next = clone.next.next if clone.next is not None else None
+            # curr.next = curr.next.next
+            curr = curr.next
+    
         return new_head
             
