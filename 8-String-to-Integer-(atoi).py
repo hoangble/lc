@@ -26,8 +26,7 @@ class Solution:
                     number = True
                 elif ord('0') <= ord(s_) <= ord('9'):
                     number = True
-                    if s_ != '0':
-                        ans = ans * 10 + int(s_)
+                    ans = ans * 10 + int(s_)
                 else:
                     break
         return ans if not negative else -ans
