@@ -11,7 +11,7 @@ class Solution:
             if number: 
                 if ord('0') > ord(s_) or ord(s_) >  ord('9'):
                     break
-                if ans > MAX // 10 or (ans == MAX // 10) and int(s_) > MAX % 10:
+                if ans > MAX // 10 or (ans == MAX // 10 and int(s_) > MAX % 10):
                     return MAX if not negative else MIN
                 ans = ans * 10 + int(s_)
 
