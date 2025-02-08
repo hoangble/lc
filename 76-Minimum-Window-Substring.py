@@ -10,6 +10,7 @@ class Solution:
         for i, char in enumerate(s):
             if char in target_cnt:
                 filtered_s.append((i, char))
+        formed = 0
         
         print(filtered_s)
 
@@ -17,16 +18,19 @@ class Solution:
         ans = (float('inf'), 0, 0)
         while r < len(filtered_s):
             char = filtered_s[r][1]
-            # if s[r] in target_cnt:
             target_cnt[char] -= 1
+            if target_cnt[char] == 0:
+                formed += 1
             
-            while l <= r and self.all_zeros(target_cnt):
+            while l <= r and formed == len(target_cnt):
                 start = filtered_s[l][0]
                 end = filtered_s[r][0]
 
                 if end - start + 1 < ans[0]:
                     ans = (end - start + 1, start, end)
                 target_cnt[filtered_s[l][1]] += 1
+                if target_cnt[filtered_s[l][1]] > 0:
+                    formed -= 1
                 l += 1        
             r += 1
         
