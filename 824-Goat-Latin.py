@@ -2,21 +2,20 @@ class Solution:
     def toGoatLatin(self, sentence: str) -> str:
         words = sentence.split(' ')
         vowels = set((
-            'a', 'e', 'i', 'o', 'u'
+            'a', 'e', 'i', 'o', 'u',
+            'A', 'E', 'I', 'O', 'U'
         ))
         ans = []
 
         for i, w in enumerate(words, 1):
-            chrs = [*w]
-            # print(chrs)
+            chrs = [*w] # convert to list as list manipulation is cheaper
             new_w = chrs
-            if chrs[0].lower() not in vowels:
-                new_w = chrs[1:]
-                # print(chrs[1:])
+            if chrs[0] not in vowels:
+                new_w = new_w[1:]
                 new_w.append(chrs[0])
-                # print(new_w)
             
-            new_w += ['m', 'a']
+            new_w.append('m')
+            new_w.append('a')
             new_w += ['a'] * i
             ans.append(''.join(new_w))
         return ' '.join(ans)
