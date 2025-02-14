@@ -1,19 +1,35 @@
 class Solution:
     def countSubstrings(self, s: str) -> int:
-        ans = 0
-        for i in range(len(s)):
-            ans += self.check_palindrome(s, i, i)
-            ans += self.check_palindrome(s, i, i + 1)
+        # always make sure that n is odd
+        t = ['#']
+        for c in s:
+            t.append(c)
+            t.append('#')
+        
+
+        n = len(t)
+        dp = [0] * n
+        m = r = ans = 0
+        for i in range(n):
+            mirror = 2 * m - i
+            if i < r:
+                dp[i] = min(r -i, dp[mirror])
+            
+            # expand the palindrome centered at i
+            a = i + (1 + dp[i])
+            b = i - (1 + dp[i])
+
+            while a < n and b >= 0 and t[a] == t[b]:
+                dp[i] += 1
+                a += 1
+                b -= 1
+            
+            # if palindrome centered at i expands past right, adjust center and right boundary
+            if i + dp[i] > r:
+                m = i
+                r = i + dp[i]
+            ans += (dp[i] + 1) // 2
         return ans
 
+
     
-    def check_palindrome(self, s, l, h) -> int:
-        n = len(s)
-        ans = 0
-        while l >= 0 and h <= n - 1:
-            if s[l] != s[h]:
-                break
-            ans += 1
-            l -= 1
-            h += 1
-        return ans
