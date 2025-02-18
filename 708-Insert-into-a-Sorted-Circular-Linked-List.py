@@ -36,6 +36,5 @@ class Solution:
         new_node = Node(insertVal)
         new_node.next = curr.next
         curr.next = new_node
-        # curr.next = Node(insertVal, curr.next.next)
         return head
         
