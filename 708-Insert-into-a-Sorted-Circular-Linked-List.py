@@ -13,29 +13,31 @@ class Solution:
             new_node.next = new_node
             return new_node
         
+        if head.next is None:
+            head.next = Node(insertVal, head)
+            return head
+        
         curr = head
         to_insert = False
-
         while curr:
             if curr.val <= insertVal <= curr.next.val:
                 to_insert = True
+            
             elif curr.val > curr.next.val:
-                if insertVal <= curr.next.val or insertVal >= curr.val:
+                if insertVal <= curr.val and insertVal <= curr.next.val or insertVal >= curr.val and insertVal >= curr.next.val:
                     to_insert = True
             
             if to_insert:
                 new_node = Node(insertVal, curr.next)
-                curr.next = new_node
+                curr.next = new_node 
                 return head
-            
-            if curr.next == head:
-                break
+
             
             curr = curr.next
-        
-        new_node = Node(insertVal)
-        new_node.next = curr.next
-        curr.next = new_node
-        # curr.next = Node(insertVal, curr.next.next)
+            if curr == head:
+                break
+        new_node = Node(insertVal, curr.next)
+        curr.next = new_node 
+
         return head
         

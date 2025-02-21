@@ -1,7 +1,7 @@
-class Solution(object):
-    def isToeplitzMatrix(self, matrix):
-        for r, col in enumerate(matrix):
-            for c, val in enumerate(col):
-                if r != 0 and c !=0 and matrix[r-1][c-1] != val:
-                    return False
-        return True
+class Solution:
+    def isToeplitzMatrix(self, matrix: List[List[int]]) -> bool:
+        for i in range(len(matrix)):
+            for j in range(len(matrix[0])):
+                if i != 0 and j != 0 and matrix[i][j] != matrix[i - 1][j - 1]:
+                    return False 
+        return True 
