@@ -29,11 +29,11 @@ class Solution:
             if nums[i] >= bigger[0][0]:
                 heappush(bigger, (nums[i], i))
                 if nums[i - k] <= smaller[0][0] * -1:
-                    self.balance(bigger, smaller)  # do something???
+                    self.move(bigger, smaller)
             else:
                 heappush(smaller, (nums[i] * -1, i))
                 if nums[i - k] >= bigger[0][0]:
-                    self.balance(smaller, bigger)  # do something???
+                    self.move(smaller, bigger)
 
             while bigger and bigger[0][1] < i - k + 1:
                 heappop(bigger)
@@ -45,7 +45,7 @@ class Solution:
 
         return ans
 
-    def balance(self, from_heap, to_heap):
+    def move(self, from_heap, to_heap):
         num = heappop(from_heap)
         heappush(to_heap, (num[0] * -1, num[1]))
 
