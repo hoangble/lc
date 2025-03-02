@@ -133,11 +133,15 @@ class BSTIteratorPostOrderConstantNext:
 
     def hasNext(self) -> bool:
         return len(self.stack) > 0
+    
+class Node():
+    def __init__(self):
+        
 
 class BSTIteratorPostOrderModifyTree:
     # turn into a doubly linked list
     def __init__(self):
-        
+
 
 # Your BSTIterator object will be instantiated and called as such:
 # obj = BSTIterator(root)
