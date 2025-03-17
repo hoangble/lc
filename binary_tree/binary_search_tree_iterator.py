@@ -129,18 +129,20 @@ class BSTIteratorPostOrderConstantNext:
         # Must be O(1) avg???
         res = self.stack.pop()
         self.left_traverse(res.right)
+        print(res.val)
         return res.val
 
     def hasNext(self) -> bool:
         return len(self.stack) > 0
-    
-class Node():
-    def __init__(self):
-        
 
-class BSTIteratorPostOrderModifyTree:
-    # turn into a doubly linked list
-    def __init__(self):
+
+# class Node():
+#     def __init__(self):
+
+
+# class BSTIteratorPostOrderModifyTree:
+# turn into a doubly linked list
+# def __init__(self):
 
 
 # Your BSTIterator object will be instantiated and called as such:
@@ -156,7 +158,8 @@ if __name__ == "__main__":
     non_stream = BSTIteratorPostOrder(root)
     print(non_stream.stack)
 
-    obj = BSTIteratorPostOrderStreaming(root)
+    # obj = BSTIteratorPostOrderStreaming(root)
+    obj = BSTIteratorPostOrderConstantNext(root)
     param_1 = obj.next()
     param_2 = obj.next()
     param_3 = obj.hasNext()
