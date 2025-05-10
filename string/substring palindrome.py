@@ -12,7 +12,7 @@ class Solution:
             mirror = 2 * m - i
             if i < r:
                 dp[i] = min(r - i, dp[mirror])
-
+            
             # expand the palindrome centered at i
             a = i + (1 + dp[i])
             b = i - (1 + dp[i])
